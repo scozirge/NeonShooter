@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Monster
+  - EnemyShield
+  - PlayerShield
+  - TopCol
+  - BotCol
+  - RightCol
+  - LeftCol
+  - BounceWall
+  - UI
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: bg_scence
+    uniqueID: 2606868005
+    locked: 0
+  - name: bg_board
+    uniqueID: 588825491
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Effect_BelowTheRole
+    uniqueID: 2527406637
+    locked: 0
+  - name: Role
+    uniqueID: 323703241
+    locked: 0
+  - name: Ammo
+    uniqueID: 1863493087
+    locked: 0
+  - name: Effect
+    uniqueID: 612120315
+    locked: 0
