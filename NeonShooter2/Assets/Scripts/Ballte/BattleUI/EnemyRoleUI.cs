@@ -13,8 +13,35 @@ public class EnemyRoleUI : RoleUI
     Text ScoreValue_Text;
     [SerializeField]
     Animator ScoreAni;
+    [SerializeField]
+    Image HeadImg;
+    [SerializeField]
+    Image BodyImg;
+    [SerializeField]
+    Image BackImg;
 
-    public void ShowScore(string _str,string _score)
+    static Sprite[] Heads;
+    static Sprite[] Bodys;
+    static Sprite[] Backs;
+    static bool IsLoadedSprites = false;
+
+    private void OnEnable()
+    {
+        if (!IsLoadedSprites)
+        {
+            Heads = Resources.LoadAll<Sprite>("Images/Role/Head");
+            Bodys = Resources.LoadAll<Sprite>("Images/Role/Body");
+            Backs = Resources.LoadAll<Sprite>("Images/Role/Back");
+            IsLoadedSprites = true;
+        }
+        int rand = Random.Range(0, Heads.Length);
+        HeadImg.sprite = Heads[rand];
+        rand = Random.Range(0, Bodys.Length);
+        BodyImg.sprite = Bodys[rand];
+        rand = Random.Range(0, Backs.Length);
+        BackImg.sprite = Backs[rand];
+    }
+    public void ShowScore(string _str, string _score)
     {
         if (!BattleManager.MyEnemyRole.IsAlive)
             return;

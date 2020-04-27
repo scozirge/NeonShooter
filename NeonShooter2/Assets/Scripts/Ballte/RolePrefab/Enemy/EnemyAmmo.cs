@@ -8,12 +8,15 @@ public class EnemyAmmo : AmmoPrefab
     float LifeTime;
     [SerializeField]
     protected float AngularVlocity = 3f;
+    [SerializeField]
+    SpriteRenderer AmmoSR;
 
     protected float Radius { get; set; }
     protected float StartRadian;
     protected float CurRadian;
     protected Vector3 ShootPos;
     protected float AmmoSpeed;
+    ParticleSystem TrailEffect;
 
     public override void Init(Dictionary<string, object> _dic)
     {
@@ -64,7 +67,14 @@ public class EnemyAmmo : AmmoPrefab
                 if (CurBounceTimes == 0)
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetDragForce(MyRigi.velocity, 0);
                 if (Bounce())
+                {
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetVelocity(MyRigi.velocity);
+                    Vector2 dir = MyRigi.velocity;
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+                    AmmoSR.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                    TrailEffect.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                }
+
                 break;
             case "RightCol":
                 MyAudio.PlaySound(HitWallAduio);
@@ -73,7 +83,13 @@ public class EnemyAmmo : AmmoPrefab
                 if (CurBounceTimes == 0)
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetDragForce(MyRigi.velocity, 0);
                 if (Bounce())
+                {
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetVelocity(MyRigi.velocity);
+                    Vector2 dir = MyRigi.velocity;
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+                    AmmoSR.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                    TrailEffect.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                }
                 break;
             case "TopCol":
                 MyAudio.PlaySound(HitWallAduio);
@@ -82,7 +98,14 @@ public class EnemyAmmo : AmmoPrefab
                 if (CurBounceTimes == 0)
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetDragForce(MyRigi.velocity, 0);
                 if (Bounce())
+                {
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetVelocity(MyRigi.velocity);
+                    Vector2 dir = MyRigi.velocity;
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+                    AmmoSR.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                    TrailEffect.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                }
+
                 break;
             case "BotCol":
                 MyAudio.PlaySound(HitWallAduio);
@@ -91,7 +114,13 @@ public class EnemyAmmo : AmmoPrefab
                 if (CurBounceTimes == 0)
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetDragForce(MyRigi.velocity, 0);
                 if (Bounce())
+                {
                     MyRigi.velocity = _col.GetComponent<NormalWallObj>().GetVelocity(MyRigi.velocity);
+                    Vector2 dir = MyRigi.velocity;
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+                    AmmoSR.transform.rotation = Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                    TrailEffect.transform.rotation= Quaternion.Euler(AmmoSR.transform.localRotation.x, AmmoSR.transform.localRotation.y, angle);
+                }
                 break;
             default:
                 break;
@@ -119,7 +148,7 @@ public class EnemyAmmo : AmmoPrefab
     public override void Launch()
     {
         base.Launch();
-        EffectEmitter.EmitParticle("trail_arrow", Vector3.zero, Vector3.zero, transform);
+        TrailEffect=EffectEmitter.EmitParticle("trail_arrow", Vector3.zero, Vector3.zero, transform);
         Force = (transform.position - ShootPos).normalized * AmmoSpeed;
         MyRigi.AddForce(Force);
     }

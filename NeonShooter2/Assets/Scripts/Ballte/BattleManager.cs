@@ -140,11 +140,18 @@ public partial class BattleManager : MonoBehaviour
         enemyGo.transform.SetParent(transform);
         //Init EnemyData
         Dictionary<string, object> enemyDataDic = new Dictionary<string, object>();
-        enemyDataDic.Add("Health", 50 + Level * 6);
-        enemyDataDic.Add("Attack", 25 + Level * 6);
+        enemyDataDic.Add("Health", 30 + Level * 4);
+        enemyDataDic.Add("Attack", 20 + Level * 4);
         enemyDataDic.Add("Camera", MyCamera);
-        enemyDataDic.Add("AmmoNum", Level + 3);
-        enemyDataDic.Add("AmmoBounceTimes", 0);
+        int ammoNum = Mathf.RoundToInt(Level / 2) + 1;
+        int ammoBounceTimes = 0;
+        if (ammoNum > 6)
+        {
+            ammoNum = 6;
+            ammoBounceTimes = 1;
+        }
+        enemyDataDic.Add("AmmoNum", ammoNum);
+        enemyDataDic.Add("AmmoBounceTimes", ammoBounceTimes);
         MyEnemyRole.Init(enemyDataDic);
     }
     void SpawnRoles()
@@ -160,11 +167,18 @@ public partial class BattleManager : MonoBehaviour
 
         //Init EnemyData
         Dictionary<string, object> enemyDataDic = new Dictionary<string, object>();
-        enemyDataDic.Add("Health", 50 + Level * 6);
-        enemyDataDic.Add("Attack", 25 + Level * 6);
+        enemyDataDic.Add("Health", 30 + Level * 4);
+        enemyDataDic.Add("Attack", 20 + Level * 4);
         enemyDataDic.Add("Camera", MyCamera);
-        enemyDataDic.Add("AmmoNum", Level + 3);
-        enemyDataDic.Add("AmmoBounceTimes", 0);
+        int ammoNum = Mathf.RoundToInt(Level / 2) + 1;
+        int ammoBounceTimes = 0;
+        if (ammoNum > 6)
+        {
+            ammoNum = 6;
+            ammoBounceTimes = 1;
+        }
+        enemyDataDic.Add("AmmoNum", ammoNum);
+        enemyDataDic.Add("AmmoBounceTimes", ammoBounceTimes);
         MyEnemyRole.Init(enemyDataDic);
         //Init PlayerData
         Dictionary<string, object> playerDataDic = new Dictionary<string, object>();

@@ -135,7 +135,7 @@ public class PlayerAmmo : AmmoPrefab
     }
     public override void SelfDestroy()
     {
-        EnemyRole.SetAllMonsterUnarm();
+        //EnemyRole.SetAllMonsterUnarm();
         switch(AmmoHitCondition)
         {
             case HitCondition.Hit:
