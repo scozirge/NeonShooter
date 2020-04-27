@@ -44,9 +44,24 @@ public class AudioPlayer : MonoBehaviour
             return;
         IsMute = _isMute;
         if (IsMute)
+        {
             PlayerPrefs.SetInt("IsMute", 1);
+            if (LoopAudioDic != null)
+                foreach (AudioSource value in LoopAudioDic.Values)
+                {
+                    value.volume = 0;
+                }
+        }
         else
+        {
             PlayerPrefs.SetInt("IsMute", 0);
+            if (LoopAudioDic != null)
+                foreach (AudioSource value in LoopAudioDic.Values)
+                {
+                    value.volume = 1;
+                }
+        }
+
     }
     public void PlaySound(string _soundName)
     {
@@ -115,8 +130,6 @@ public class AudioPlayer : MonoBehaviour
     }
     public void PlayLoopSound(AudioClip _ac, string _key)
     {
-        if (IsMute)
-            return;
         if (LoopAudioDic.ContainsKey(_key))
         {
             //Debug.LogWarning(string.Format("Key:{0} 循環播放音效索引重複", _key));
@@ -144,6 +157,10 @@ public class AudioPlayer : MonoBehaviour
             CurAS.loop = true;
             CurAS.Play();
         }
+        if (IsMute)
+            CurAS.volume = 0;
+        else
+            CurAS.volume = 1;
         LoopAudioDic.Add(_key, CurAS);
     }
     AudioSource GetApplicableAudioSource()

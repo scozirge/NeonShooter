@@ -141,9 +141,9 @@ public partial class BattleManager : MonoBehaviour
         //Init EnemyData
         Dictionary<string, object> enemyDataDic = new Dictionary<string, object>();
         enemyDataDic.Add("Health", 30 + Level * 4);
-        enemyDataDic.Add("Attack", 20 + Level * 4);
+        enemyDataDic.Add("Attack", 10 + Level * 3);
         enemyDataDic.Add("Camera", MyCamera);
-        int ammoNum = Mathf.RoundToInt(Level / 2) + 1;
+        int ammoNum = Mathf.RoundToInt(Level / 2) + 3;
         int ammoBounceTimes = 0;
         if (ammoNum > 6)
         {
@@ -168,9 +168,9 @@ public partial class BattleManager : MonoBehaviour
         //Init EnemyData
         Dictionary<string, object> enemyDataDic = new Dictionary<string, object>();
         enemyDataDic.Add("Health", 30 + Level * 4);
-        enemyDataDic.Add("Attack", 20 + Level * 4);
+        enemyDataDic.Add("Attack", 10 + Level * 3);
         enemyDataDic.Add("Camera", MyCamera);
-        int ammoNum = Mathf.RoundToInt(Level / 2) + 1;
+        int ammoNum = Mathf.RoundToInt(Level / 2) + 3;
         int ammoBounceTimes = 0;
         if (ammoNum > 6)
         {

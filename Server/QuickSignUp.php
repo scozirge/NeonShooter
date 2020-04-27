@@ -4,7 +4,6 @@ $time_start = microtime(true);
 require_once('./config.php');
 //導入加密類
 require_once('./3DES.php');
-
 //$requestTime = $_POST['RequestTime'];
 //取得建立帳戶時間，格式為年份/月/日 時:分:秒(台北時區)
 date_default_timezone_set('Asia/Taipei');
@@ -51,7 +50,7 @@ if ($numrows == 0)
 		{
 			$time_end = microtime(true);
 			$executeTime = $time_end - $time_start;
-			die ("Fail:12: \nExecuteTime=".$executeTime."");
+			die ("Fail:123: \nExecuteTime=".$executeTime."");
 		}
        //對帳號進行加密
         $rep = new Crypt3Des (); // new一個加密類
@@ -68,7 +67,7 @@ if ($numrows == 0)
 	{
 		$time_end = microtime(true);
 		$executeTime = $time_end - $time_start;
-		die ("Fail:12: \nExecuteTime=".$executeTime."");
+		die ("Fail:124: \nExecuteTime=".$executeTime."");
 	}
 }
 else

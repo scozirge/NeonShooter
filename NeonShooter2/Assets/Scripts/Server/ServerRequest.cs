@@ -7,7 +7,7 @@ public partial class ServerRequest : MonoBehaviour
 
     public static ServerRequest Conn;
     const string TestServerURL = "127.0.0.1/Game2018_1/";
-    const string ServerURL = "http://game2018-1.000webhostapp.com/";
+    const string ServerURL = "http://scozirge.com/NeonShooter/";
     static bool IsFormal;
     static bool ShowLoading = false;//是否顯示loading
 
@@ -39,7 +39,7 @@ public partial class ServerRequest : MonoBehaviour
                 IsFormal = true;
                 break;
         }
-        //IsFormal = true;
+        IsFormal = true;
         Conn = this;
         //切場景不移除物件
         DontDestroyOnLoad(gameObject);

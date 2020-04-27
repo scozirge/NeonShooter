@@ -11,7 +11,7 @@ public partial class ServerRequest : MonoBehaviour
     static DateTime LastUpdateTime_Leaderboard { get; set; }
     public static void GetLeaderboard()
     {
-        if (!CheckLastUpdateTime())//最快每10秒才能抓一次排行榜
+        if (!CheckLastUpdateTime())//最快每1秒才能抓一次排行榜
             return;
         ReSendQuestTimes_Leaderboard = MaxReSendQuestTimes_Leaderboard;//重置重送要求給Server的次數
         SendLeaderboardQuest();
@@ -37,7 +37,7 @@ public partial class ServerRequest : MonoBehaviour
         DateTime nowTime = DateTime.Now;
         TimeSpan diffTimeSpan = nowTime - LastUpdateTime_Leaderboard;
         //如果距離上次更新超過60秒
-        if (diffTimeSpan.TotalMinutes > 1)
+        if (diffTimeSpan.TotalSeconds > 1)
         {
             //紀錄上次點更新的時間
             LastUpdateTime_Leaderboard = DateTime.Now;

@@ -77,7 +77,9 @@ public abstract partial class RolePrefab : MonoBehaviour
         if (!IsAlive)
             return;
         Health += _heal;
-    }
+        if (Health > MaxHealth)
+            Health = MaxHealth;
+;    }
     public virtual void IncreaseMaxHP(int _heal)
     {
         if (!IsAlive)

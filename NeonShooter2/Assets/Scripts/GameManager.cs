@@ -16,6 +16,11 @@ public partial class GameManager : MonoBehaviour
     FBManager FBPrefab;
     [SerializeField]
     ServerRequest SR;
+    [SerializeField]
+    protected AudioClip BGM;
+    [SerializeField]
+    protected AudioPlayer MyAudio;
+
     void Awake()
     {
         Screen.fullScreen = true;
@@ -34,6 +39,7 @@ public partial class GameManager : MonoBehaviour
             DeployFacebook();
         if (IsInit)
             return;
+        MyAudio.PlayLoopSound(BGM, "bgm");
         Player.Init();
         DontDestroyOnLoad(gameObject);
         SR.Init();
