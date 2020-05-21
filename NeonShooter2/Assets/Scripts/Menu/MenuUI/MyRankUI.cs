@@ -24,10 +24,6 @@ public class MyRankUI : MonoBehaviour
             Score_Text.text = string.Format("{0} {1}{2}", GameDictionary.String_UIDic["CurrentRank"].GetString(Player.UseLanguage), MyMath.GetTopProportionInTotal(Player.Rank, ChampionData.TotalChampionNum), "%");
         else
             Score_Text.text = string.Format("{0} {1}", GameDictionary.String_UIDic["CurrentRank"].GetString(Player.UseLanguage), Player.Rank.ToString());
-        if (Player.FBID != "")
-        {
-            FBManager.GetChampionIcon(Icon_CB());
-        }
     }
     IEnumerator Icon_CB()
     {

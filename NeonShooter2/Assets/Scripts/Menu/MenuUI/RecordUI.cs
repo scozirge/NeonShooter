@@ -68,41 +68,6 @@ public class RecordUI : MonoBehaviour
         CriticalHit_Value.text = Player.CriticalHit.ToString();
         Death_Value.text = Player.Death.ToString();
         CriticalCombo_Value.text = Player.CriticalCombo.ToString();
-        RefreshFBIcon();
-    }
-    public static void RefreshFBIcon()
-    {
-        if (FBManager.IsGetIcon)
-        {
-            Texture2D t = FBManager.FBICon;
-            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-            Myself.FBIcon.sprite = s;
-            Myself.FBIcon.gameObject.SetActive(true);
-
-            IOManager.SaveTextureAsPNG(t, string.Format("{0}/{1}", Application.persistentDataPath, Player.FBID));
-        }
-        else
-        {
-            //FBManager.GetProfilePhoto();
-            if (File.Exists(string.Format("{0}/{1}", Application.persistentDataPath, Player.FBID)))
-            {
-                Myself.FBIcon.sprite = IOManager.LoadPNGAsSprite(string.Format("{0}/{1}", Application.persistentDataPath, Player.FBID));
-                Myself.FBIcon.gameObject.SetActive(true);
-            }
-            else
-            {
-            }
-        }
-    }
-    public void TakeScreenShopAndPostToFB()
-    {
-        FBManager.MyRequest = FBRequest.TakeScreenShot;
-        if (!FBManager.IsInit)
-            FBManager.Init();
-        else if (!FBManager.IsLogin)
-            FBManager.Login();
-        else
-            FBManager.TakeScreenShot();
     }
     public void SetActivity()
     {

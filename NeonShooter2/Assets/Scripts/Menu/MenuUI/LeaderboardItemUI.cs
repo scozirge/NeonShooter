@@ -56,10 +56,6 @@ public class LeaderboardItemUI : MonoBehaviour
                 RankBot_Image.sprite = Rank4Bot_Prefab;
                 break;
         }
-        if (MyChampionData.FBID != "")
-        {
-            FBManager.GetChampionIcon(Icon_CB());
-        }
     }
     IEnumerator Icon_CB()
     {

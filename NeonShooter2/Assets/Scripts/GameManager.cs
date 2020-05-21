@@ -11,10 +11,6 @@ public partial class GameManager : MonoBehaviour
     [SerializeField]
     PopupUI PopUIPrefab;
     [SerializeField]
-    GoogleADManager GoogleAdmobPrefab;
-    [SerializeField]
-    FBManager FBPrefab;
-    [SerializeField]
     ServerRequest SR;
     [SerializeField]
     protected AudioClip BGM;
@@ -33,10 +29,6 @@ public partial class GameManager : MonoBehaviour
             DeployPopupUI();
         if (!GameDictionary.IsInit)
             GameDictionary.InitDic();
-        if (!GoogleADManager.IsInit)
-            DeployGoogleAdmob();
-        if (!FBManager.IsSpawn)
-            DeployFacebook();
         if (IsInit)
             return;
         MyAudio.PlayLoopSound(BGM, "bgm");
@@ -57,15 +49,5 @@ public partial class GameManager : MonoBehaviour
         go.transform.position = Vector3.zero;
         PopupUI ppui = go.GetComponent<PopupUI>();
         ppui.Init();
-    }
-    void DeployGoogleAdmob()
-    {
-        GameObject googleAdMobGo = Instantiate(GoogleAdmobPrefab.gameObject, Vector3.zero, Quaternion.identity) as GameObject;
-        googleAdMobGo.transform.position = Vector3.zero;
-    }
-    void DeployFacebook()
-    {
-        GameObject FacebookGo = Instantiate(FBPrefab.gameObject, Vector3.zero, Quaternion.identity) as GameObject;
-        FacebookGo.transform.position = Vector3.zero;
     }
 }

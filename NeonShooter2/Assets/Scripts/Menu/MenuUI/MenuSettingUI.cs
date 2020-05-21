@@ -23,16 +23,6 @@ public class MenuSettingUI : MonoBehaviour {
     {
         Debug.Log(string.Format("音樂關閉{0}", Music_Toggle.isOn));
     }
-    public void FBLogin()
-    {
-        FBManager.MyRequest = FBRequest.GetPhoto;
-        if (!FBManager.IsInit)
-            FBManager.Init();
-        else if (!FBManager.IsLogin)
-            FBManager.Login();
-        else
-            PopupUI.ShowWarning("Alerdy Login!", "");
-    }
     public void ChangeName()
     {
         if (Name_Text.text == Player.Name)

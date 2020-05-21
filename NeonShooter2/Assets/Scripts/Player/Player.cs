@@ -85,7 +85,6 @@ public partial class Player
     {
         FBID = _id;
         PlayerPrefs.SetString("FBID", FBID);
-        ServerRequest.FBLogin();
     }
     public static void Test()
     {
